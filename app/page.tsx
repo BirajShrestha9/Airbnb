@@ -9,6 +9,8 @@ import MediumCard from "./components/MediumCard";
 
 // import { PropsTypes } from "./components/SmallCard";
 import { useEffect, useState } from "react";
+import LargeCard from "./components/LargeCard";
+import Footer from "./components/Footer";
 
 // export interface CitiesProps {
 //   exploreData: PropsTypes[];
@@ -56,13 +58,22 @@ export default function Home() {
 
         <section>
           <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
-          <div className="flex space-x-3 overflow-scroll  scrollbar-hide cursor-grab p-3-ml-3">
+          <div className="flex space-x-3 overflow-y                     not-first:-hidden overflow-x-hidden p-4 hover:overflow-scroll  hover:scrollbar-hide cursor-grab p-3-ml-3">
             {cardsData?.map(({ img, title }) => (
               <MediumCard key={img} img={img} title={title} />
             ))}
           </div>
         </section>
+        <section>
+          <LargeCard
+            img="https://links.papareact.com/4cj"
+            title="The Greatest Outdoors"
+            description="Wish Created by Qwerty"
+            buttonText="Get Inspired"
+          />
+        </section>
       </main>
+      <Footer />
     </div>
   );
 }
