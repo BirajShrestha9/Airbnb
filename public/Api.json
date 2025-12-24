@@ -1,0 +1,42 @@
+[
+  {
+    "img": "https://wallpaperaccess.com/full/32512.jpg",
+    "location": "London",
+    "distance": "45-minute drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/2560738.jpg",
+    "location": "Manchester",
+    "distance": "4.5-hour drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/2047379.jpg",
+    "location": "Liverpool",
+    "distance": "4.5-hour drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/99173.jpg",
+    "location": "York",
+    "distance": "4-hour drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/4945990.jpg",
+    "location": "Cardiff",
+    "distance": "45-minute drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/4945991.jpg",
+    "location": "Birkenhead",
+    "distance": "4.5-hour drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/4945994.jpg",
+    "location": "Newquay",
+    "distance": "6-hour drive"
+  },
+  {
+    "img": "https://wallpaperaccess.com/full/4945996.jpg",
+    "location": "Hove",
+    "distance": "2-hour drive"
+  }
+]
