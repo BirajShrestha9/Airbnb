@@ -11,7 +11,7 @@ import MediumCard from "./components/MediumCard";
 import { useEffect, useState } from "react";
 import LargeCard from "./components/LargeCard";
 import Footer from "./components/Footer";
-
+import "app/styles/globals.css";
 // export interface CitiesProps {
 //   exploreData: PropsTypes[];
 // }
