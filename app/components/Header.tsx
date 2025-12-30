@@ -14,13 +14,19 @@ import {
   MagnifyingGlassIcon,
   UsersIcon,
 } from "@heroicons/react/16/solid";
+import { useRouter } from "next/navigation";
 
 function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
-
+  const router = useRouter();
+  const search = () => {
+    router.push(
+      `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&guests=${noOfGuests}`
+    );
+  };
   const handleSelect = (ranges: RangeKeyDict) => {
     const { startDate, endDate } = ranges.selection;
     if (startDate && endDate) {
@@ -41,7 +47,10 @@ function Header() {
      "
     >
       {/* logo */}
-      <div className="relative flex items-center h-10  my-auto">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center h-10  my-auto"
+      >
         <Image
           className="cursor-pointer"
           src={"https://links.papareact.com/qd3"}
@@ -103,7 +112,12 @@ function Header() {
             >
               cancel
             </button>
-            <button className="grow text-red-400 cursor-pointer">search</button>
+            <button
+              onClick={search}
+              className="grow text-red-400 cursor-pointer"
+            >
+              search
+            </button>
           </div>
         </div>
       )}
