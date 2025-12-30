@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
 import { useState, useEffect } from "react";
+import { Suspense } from "react";
 interface SearchResults {
   img: string;
   location: string;
@@ -17,8 +18,7 @@ interface SearchResults {
 // interface SearchResultProp {
 //   searchResults: SearchResults[];
 // }
-
-export default function Search() {
+function SearchPage() {
   const [searchResults, setSearchResults] = useState<SearchResults[]>([]);
   const router = useSearchParams();
   const location = router.get("location");
@@ -74,5 +74,12 @@ export default function Search() {
       </main>
       <Footer />
     </div>
+  );
+}
+export default function Search() {
+  return (
+    <Suspense fallback={<div>Loading Search Results...</div>}>
+      <SearchPage />
+    </Suspense>
   );
 }
