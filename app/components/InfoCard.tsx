@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { HeartIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
 
 interface SearchResult {
   img: string;
@@ -17,9 +16,6 @@ export default function InfoCard({
   location,
   title,
   description,
-  star,
-  price,
-  total,
 }: SearchResult) {
   return (
     <div className="flex">
