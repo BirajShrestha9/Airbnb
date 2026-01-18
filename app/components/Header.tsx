@@ -1,11 +1,10 @@
 "use client";
-
-import React, { useState } from "react";
+import { useSearch } from "./SearchProvider";
 import Image from "next/image";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-
 import { DateRangePicker, RangeKeyDict } from "react-date-range";
+import SearchUrl from "./SearchPage";
 import {
   GlobeAltIcon,
   Bars3Icon,
@@ -15,18 +14,47 @@ import {
   UsersIcon,
 } from "@heroicons/react/16/solid";
 import { useRouter } from "next/navigation";
+// import { useContext } from "react";
+// import { SearchContext } from "./SearchProvider";
 
 function Header() {
-  const [searchInput, setSearchInput] = useState("");
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
-  const [noOfGuests, setNoOfGuests] = useState(1);
+  const {
+    searchInput,
+    setSearchInput,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+    noOfGuests,
+    setNoOfGuests,
+  } = useSearch();
+  // const {
+  //   searchInput,
+  //   setSearchInput,
+  //   startDate,
+  //   setStartDate,
+  //   endDate,
+  //   setEndDate,
+  //   noOfGuests,
+  //   setNoOfGuests,
+  // } = useContext(SearchContext);
   const router = useRouter();
+
   const search = () => {
-    router.push(
-      `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&guests=${noOfGuests}`
-    );
+    // router.push(
+    //   `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&guests=${noOfGuests}`,
+    // );
+    const url = SearchUrl({
+      searchInput,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString(),
+      noOfGuests,
+    });
+    setSearchInput("");
+
+    router.push(url);
   };
+
   const handleSelect = (ranges: RangeKeyDict) => {
     const { startDate, endDate } = ranges.selection;
     if (startDate && endDate) {

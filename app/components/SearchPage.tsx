@@ -10,3 +10,20 @@
 
 //   return res.json();
 // }
+interface SearchProp {
+  searchInput: string;
+  startDate: string;
+  endDate: string;
+  noOfGuests: number;
+}
+
+function SearchUrl({
+  searchInput,
+  startDate,
+  endDate,
+  noOfGuests,
+}: SearchProp) {
+  return `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&guests=${noOfGuests}`;
+}
+
+export default SearchUrl;
